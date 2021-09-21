@@ -1,0 +1,14 @@
+.todoItem {
+  width: 80%;
+  height: 50px;
+  margin-bottom: 15px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #303a08;
+  background: linear-gradient(85deg, #fb63f9, #c2e534);
+  border-radius: 8px;
+}
