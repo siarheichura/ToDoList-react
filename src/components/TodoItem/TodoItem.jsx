@@ -1,10 +1,18 @@
 import styles from "./TodoItem.module.css";
 
-export function TodoItem({ todo, removeTodo }) {
+export function TodoItem({ todo, removeTodo, toggleTodo }) {
   return (
-    <div className={styles.todoItem} key={todo.id}>
+    <div
+      onClick={() => toggleTodo(todo.id)}
+      className={
+        todo.isCompleted
+          ? `${styles.todoItem} ${styles.todoItemDone}`
+          : `${styles.todoItem}`
+      }
+      key={todo.id}
+    >
       <div>{todo.task}</div>
-      <div onClick={() => removeTodo(todo.id)}>X</div>
+      <div onClick={() => removeTodo(todo.id)}>x</div>
     </div>
   );
 }

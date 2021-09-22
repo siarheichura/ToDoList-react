@@ -23,15 +23,34 @@ export function TodoList() {
     setTodos([...todos.filter((todo) => todo.id !== id)]);
   };
 
-  const toggleTodo = (id) => {};
+  const toggleTodo = (id) => {
+    setTodos([
+      ...todos.map((todo) =>
+        todo.id === id
+          ? { ...todo, isCompleted: !todo.isCompleted }
+          : { ...todo }
+      ),
+    ]);
+  };
 
   return (
     <div className={styles.todoList}>
-      <h1 className={styles.todoListTitle}>TODO LIST {todos.length}</h1>
-      <TodoForm addTodo={addTodo} />
-      {todos.map((todo) => {
-        return <TodoItem key={todo.id} todo={todo} removeTodo={removeTodo} />;
-      })}
+      <header>
+        <h1 className={styles.todoListTitle}>TODO LIST {todos.length}</h1>
+      </header>
+      <div className={styles.todoListBody}>
+        <TodoForm addTodo={addTodo} />
+        {todos.map((todo) => {
+          return (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              removeTodo={removeTodo}
+              toggleTodo={toggleTodo}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

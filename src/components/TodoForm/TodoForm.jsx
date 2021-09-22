@@ -21,7 +21,7 @@ export function TodoForm({ addTodo }) {
         value={inputValue}
         onChange={onInputChange}
         type="text"
-        placeholder="Type..."
+        placeholder="Enter your todo"
       />
       <button className={styles.todoBtn} onClick={onBtnClick}>
         Add

@@ -1,25 +1,39 @@
 .todoForm {
   width: 100%;
-  margin-bottom: 20px;
   display: flex;
   justify-content: center;
 }
 
 .todoInput {
-  width: 70%;
+  width: 80%;
   height: 50px;
-  padding: 0 25px;
-  font-size: 20px;
-  border-radius: 7px 0 0 7px;
+  padding: 0 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 18px;
   border: none;
+  outline: none;
+}
+
+.todoInput::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  color: #d5d5d5;
 }
 
 .todoBtn {
   height: 50px;
-  width: 10%;
+  width: 20%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
   font-size: 20px;
-  border-radius: 0 7px 7px 0;
-  background-color: rgb(178, 220, 27);
+  background-color: #d2bee6;
+  color: #ffffff;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.todoBtn:hover {
+  background-color: #ba9fd6;
 }
