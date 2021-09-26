@@ -1,0 +1,22 @@
+.btnsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.btn {
+  height: 20px;
+  width: 100px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  background-color: #d2bee6;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #ba9fd6;
+}

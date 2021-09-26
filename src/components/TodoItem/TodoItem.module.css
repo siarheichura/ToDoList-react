@@ -10,8 +10,56 @@
   color: #303a08;
   background: #fff;
   border-top: 1px solid #f5f5f5;
+  transition: 0.4s;
+}
+
+.todoText {
+  flex-grow: 1;
+}
+
+.todoText:focus {
+  outline: none;
 }
 
 .todoItemDone {
   text-decoration: line-through;
+  color: #306e8972;
+}
+
+.todoItemMarked {
+  background-color: #eff1cf;
+}
+
+.todoCloseBtn {
+  width: 15px;
+  height: 15px;
+  background: url(../../images/cancel.svg) no-repeat center center;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.todoCloseBtn:hover {
+  transform: rotate(90deg);
+}
+
+.todoDoneBtn {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  background: url(../../images/tick.svg) no-repeat center center;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
+.todoEditBtn {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  background: url(../../images/pen.svg) no-repeat center center;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
 }

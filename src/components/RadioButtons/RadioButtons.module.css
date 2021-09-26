@@ -1,0 +1,13 @@
+.radioBtns {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.radioBtns input {
+  margin-left: 35px;
+  margin-right: 5px;
+}

@@ -9,9 +9,16 @@ export function TodoForm({ addTodo }) {
     setInputValue(event.target.value);
   };
 
-  const onBtnClick = (event) => {
+  const onBtnClick = () => {
     addTodo(inputValue);
     setInputValue("");
+  };
+
+  const onKeyPress = (event) => {
+    if (event.key === "Enter") {
+      addTodo(inputValue);
+      setInputValue("");
+    }
   };
 
   return (
@@ -20,6 +27,7 @@ export function TodoForm({ addTodo }) {
         className={styles.todoInput}
         value={inputValue}
         onChange={onInputChange}
+        onKeyDown={onKeyPress}
         type="text"
         placeholder="Enter your todo"
       />
