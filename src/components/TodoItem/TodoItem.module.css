@@ -14,7 +14,36 @@
 }
 
 .todoText {
+  padding-right: 15px;
   flex-grow: 1;
+}
+
+.todoEditableInput {
+  width: 90%;
+  padding: 4px 0;
+  flex-grow: 1;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid #d2bee6;
+  outline: none;
+}
+
+.todoEditableBtn {
+  width: 10%;
+  height: 28px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  background-color: #d2bee6;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.todoEditableBtn:hover {
+  background-color: #ba9fd6;
 }
 
 .todoText:focus {

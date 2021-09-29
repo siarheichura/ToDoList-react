@@ -12,6 +12,13 @@ export function TodoList() {
   const [filteredTodos, setFilteredTodos] = useState(todos);
 
   useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"));
+    setTodos(todos);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+
     setFilteredTodos(todos);
   }, [todos]);
 
@@ -98,15 +105,18 @@ export function TodoList() {
             {todos.length ? todos.length : ""}
           </div>
         </h1>
-        <RemoveButtons
-          removeSelectedTodos={removeSelectedTodos}
-          doneSelectedTodos={doneSelectedTodos}
-        />
+        {todos.some((item) => item.isMarked) ? (
+          <RemoveButtons
+            removeSelectedTodos={removeSelectedTodos}
+            doneSelectedTodos={doneSelectedTodos}
+          />
+        ) : null}
       </header>
 
       <div className={styles.todoListBody}>
         <TodoForm addTodo={addTodo} />
-        <RadioButtons filterTodos={filterTodos} />
+        {todos.length ? <RadioButtons filterTodos={filterTodos} /> : null}
+
         {filteredTodos.map((todo) => {
           return (
             <TodoItem
