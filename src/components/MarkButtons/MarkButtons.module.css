@@ -1,0 +1,34 @@
+.markBtnsWrapp {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.markBtn {
+  height: 20px;
+  /* width: 200px; */
+  padding-left: 25px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.markBtnRemove {
+  background: url(../../images/cancel.svg) no-repeat center left;
+  background-size: contain;
+}
+
+.markBtnDone {
+  background: url(../../images/tick.svg) no-repeat center left;
+  background-size: contain;
+}
+
+.markBtn:hover {
+  transform: scale(1.05);
+}

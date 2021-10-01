@@ -2,19 +2,23 @@ import { useState } from "react";
 
 import styles from "./TodoForm.module.css";
 
-export function TodoForm({ addTodo }) {
+export interface IFormTodo {
+  addTodo: any;
+}
+
+export function TodoForm({ addTodo }: IFormTodo) {
   const [inputValue, setInputValue] = useState("");
 
-  const onInputChange = (event) => {
+  const onInputChange = (event: any) => {
     setInputValue(event.target.value);
   };
 
-  const onBtnClick = () => {
+  const onAddBtnClick = () => {
     addTodo(inputValue);
     setInputValue("");
   };
 
-  const onKeyPress = (event) => {
+  const onEnterPress = (event: any) => {
     if (event.key === "Enter") {
       addTodo(inputValue);
       setInputValue("");
@@ -27,11 +31,11 @@ export function TodoForm({ addTodo }) {
         className={styles.todoInput}
         value={inputValue}
         onChange={onInputChange}
-        onKeyDown={onKeyPress}
+        onKeyDown={onEnterPress}
         type="text"
         placeholder="Enter your todo"
       />
-      <button className={styles.todoBtn} onClick={onBtnClick}>
+      <button className={styles.todoBtn} onClick={onAddBtnClick}>
         Add
       </button>
     </div>

@@ -1,20 +1,32 @@
 import { useState } from "react";
 import styles from "./TodoItem.module.css";
 
-export function TodoItem({ todo, removeTodo, doneTodo, markTodo, editTodo }) {
+import { ITodo } from "../TodoList/TodoList";
+
+export interface ITodoItem {
+  todo: ITodo;
+  removeTodo: (id: string) => void;
+  doneTodo: (id: string) => void;
+  selectTodo: (id: string) => void;
+  setEditTodo: (id: string, newTask: string) => void;
+}
+
+export function TodoItem({
+  todo,
+  removeTodo,
+  doneTodo,
+  selectTodo,
+  setEditTodo,
+}: ITodoItem) {
   const [inputValue, setInputValue] = useState(todo.task);
+  const [isEditable, setIsEditable] = useState(false);
 
-  const onBtnDoneClick = (event) => {
-    doneTodo(todo.id);
-    event.stopPropagation();
+  const onBtnSaveEditClick = () => {
+    setEditTodo(todo.id, inputValue);
+    setIsEditable(!isEditable);
   };
 
-  const onBtnCloseClick = (event) => {
-    removeTodo(todo.id);
-    event.stopPropagation();
-  };
-
-  const onInputChange = (event) => {
+  const onInputChange = (event: any) => {
     setInputValue(event.target.value);
   };
 
@@ -26,11 +38,11 @@ export function TodoItem({ todo, removeTodo, doneTodo, markTodo, editTodo }) {
 
   return (
     <div
-      onDoubleClick={() => markTodo(todo.id)}
+      onDoubleClick={() => selectTodo(todo.id)}
       className={todoClasses.join(" ")}
       key={todo.id}
     >
-      {todo.isEditable ? (
+      {isEditable ? (
         <div className={styles.todoText}>
           <input
             className={styles.todoEditableInput}
@@ -40,11 +52,7 @@ export function TodoItem({ todo, removeTodo, doneTodo, markTodo, editTodo }) {
           />
           <button
             className={styles.todoEditableBtn}
-            onClick={() => {
-              editTodo(todo.id);
-              todo.task = inputValue;
-              console.log(todo.task);
-            }}
+            onClick={onBtnSaveEditClick}
           >
             Save
           </button>
@@ -52,14 +60,17 @@ export function TodoItem({ todo, removeTodo, doneTodo, markTodo, editTodo }) {
       ) : (
         <div className={styles.todoText}>{todo.task}</div>
       )}
-      <button className={styles.todoDoneBtn} onClick={onBtnDoneClick}></button>
+      <button
+        className={styles.todoDoneBtn}
+        onClick={() => doneTodo(todo.id)}
+      ></button>
       <button
         className={styles.todoEditBtn}
-        onClick={() => editTodo(todo.id)}
+        onClick={() => setIsEditable(!isEditable)}
       ></button>
       <button
         className={styles.todoCloseBtn}
-        onClick={onBtnCloseClick}
+        onClick={() => removeTodo(todo.id)}
       ></button>
     </div>
   );
