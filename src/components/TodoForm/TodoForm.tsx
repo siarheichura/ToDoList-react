@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./TodoForm.module.css";
 
 export interface IFormTodo {
-  addTodo: any;
+  addTodo: (inputValue: string) => void;
 }
 
 export function TodoForm({ addTodo }: IFormTodo) {

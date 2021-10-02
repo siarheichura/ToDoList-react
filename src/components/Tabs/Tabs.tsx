@@ -7,7 +7,7 @@ export interface ITabs {
 export function Tabs({ filterTodos }: ITabs) {
   return (
     <div className={styles.tabs}>
-      <button className={styles.tabActive} id="all" onClick={filterTodos}>
+      <button className={styles.tab} id="all" onClick={filterTodos}>
         All
       </button>
       <button className={styles.tab} id="done" onClick={filterTodos}>

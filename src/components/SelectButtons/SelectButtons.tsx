@@ -1,14 +1,14 @@
-import styles from "./MarkButtons.module.css";
+import styles from "./SelectButtons.module.css";
 
-export interface IMarkButtons {
+export interface ISelectButtons {
   removeSelectedTodos: () => void;
   doneSelectedTodos: () => void;
 }
 
-export function MarkButtons({
+export function SelectButtons({
   removeSelectedTodos,
   doneSelectedTodos,
-}: IMarkButtons) {
+}: ISelectButtons) {
   return (
     <div className={styles.markBtnsWrapp}>
       <button

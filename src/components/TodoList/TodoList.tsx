@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { TodoItem } from "../TodoItem";
 import { TodoForm } from "../TodoForm";
 import { Tabs } from "../Tabs";
-import { MarkButtons } from "../MarkButtons";
+import { SelectButtons } from "../SelectButtons";
 
 import styles from "./TodoList.module.css";
 
@@ -128,7 +128,7 @@ export function TodoList() {
         })}
       </div>
       {todos.some((todo: ITodo) => todo.isMarked) ? (
-        <MarkButtons
+        <SelectButtons
           removeSelectedTodos={removeSelectedTodos}
           doneSelectedTodos={doneSelectedTodos}
         />
